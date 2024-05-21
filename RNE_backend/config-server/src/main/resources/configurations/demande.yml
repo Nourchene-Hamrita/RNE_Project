@@ -1,0 +1,37 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+server:
+  port: 8082
+
+spring:
+  application:
+    name: demande
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/RNEdb?autoReconnect=true&useSSL=false&createDatabaseIfNotExist=true&currentSchema=demande
+   
+    #url: jdbc:postgresql://postgresql-youssef31.alwaysdata.net:5432/youssef31_rnedb?autoReconnect=true&useSSL=false&createDatabaseIfNotExist=true&currentSchema=demande
+    username: postgres
+
+    password: nour123
+    #username: youssef31
+    #password: Youssef*31
+   
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: demande
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
